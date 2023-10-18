@@ -1,7 +1,7 @@
-import Home from "../modules/home/screens/home";
+import { Home } from "../modules";
 import Config from "../modules/config/screens/config";
-import Login from "../modules/login/screens/login";
-import Clients from "../modules/clients/screens/clients";
+import { Login } from "../modules";
+import { Clients } from "../modules";
 import { Feather } from "react-native-vector-icons";
 import { CustomDrawer } from "../shared/components/drawer/customDrawer";
 import { useNavigation } from "@react-navigation/native";

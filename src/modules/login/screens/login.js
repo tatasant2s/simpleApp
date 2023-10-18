@@ -1,17 +1,10 @@
 import { Input } from "../../../shared/components/input/input";
-import { styles } from "../styles/login-style";
+import { styles } from "../styles/login_style";
+import { Feather } from "react-native-vector-icons";
 import { Buttons } from "../../../shared/components/button/button";
 import { Image, TouchableOpacity, View } from "react-native";
-import { Feather } from "react-native-vector-icons";
-import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
-  const navigation = useNavigation();
-
-  // function handleOnConfig() {
-  //   navigation.navigate("config");
-  // }
-
   return (
     <View style={styles.container}>
       <View style={styles.iconView}>
@@ -23,8 +16,8 @@ export default function Login() {
         style={styles.imageView}
         source={require("../../../assets/images/simple-agro.jpeg")}
       />
-      <Input outlineStyle={styles.inputView} label="Usuário" mode="outlined" />
-      <Input outlineStyle={styles.inputView} label="Senha" mode="outlined" />
+      <Input label="Usuário" mode="outlined" />
+      <Input label="Senha" mode="outlined" />
       <Buttons> Login </Buttons>
     </View>
   );

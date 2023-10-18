@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
     top: 0,
     right: 0,
     position: "absolute",
+    marginTop: 15,
   },
 
   imageView: {
@@ -23,13 +24,5 @@ export const styles = StyleSheet.create({
     borderColor: "black",
     marginBottom: 40,
     padding: 80,
-  },
-
-  inputView: {
-    width: "100%",
-    borderRadius: 10,
-    backgroundColor: "white",
-    borderColor: "#009e54",
-    borderWidth: 1.5,
   },
 });

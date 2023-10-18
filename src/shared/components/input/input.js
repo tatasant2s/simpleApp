@@ -7,7 +7,11 @@ export const Input = (props) => {
 
   return (
     <View style={styles.containerInput}>
-      <TextInput selectionColor="#87CEFA" {...res}>
+      <TextInput
+        outlineStyle={styles.inputView}
+        selectionColor="#87CEFA"
+        {...res}
+      >
         {children}
       </TextInput>
     </View>

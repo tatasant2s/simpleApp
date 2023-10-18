@@ -1,4 +1,4 @@
-import Login from "../modules/login/screens/login";
+import { Login } from "../modules";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DrawerRoutes from "./drawer.routes";
 import Config from "../modules/config/screens/config";

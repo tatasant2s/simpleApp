@@ -1,10 +1,15 @@
-import { Text, View } from "react-native";
-import { styles } from "../styles/clients-style";
+import { View } from "react-native";
+import { styles } from "../styles/clients_style";
+import { InputSearch } from "../../../shared/components/inputSearch/inputSearch";
 
 export default function Clients() {
   return (
     <View style={styles.container}>
-      <Text>CLIENTES</Text>
+      <InputSearch
+        outlineStyle={styles.inputSearchView}
+        placeholder="Buscar"
+        mode="outlined"
+      />
     </View>
   );
 }
