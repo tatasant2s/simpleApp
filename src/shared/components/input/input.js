@@ -8,8 +8,11 @@ export const Input = (props) => {
   return (
     <View style={styles.containerInput}>
       <TextInput
+        style={styles.view}
+        theme={{ colors: { primary: "#009e54" } }}
         outlineStyle={styles.inputView}
         selectionColor="#87CEFA"
+        cursorColor="#87CEFA"
         {...res}
       >
         {children}

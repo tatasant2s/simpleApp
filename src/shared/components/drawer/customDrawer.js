@@ -15,17 +15,18 @@ export const CustomDrawer = (props) => {
         }}
         {...props}
       >
-        <View style={{ padding: 10 }}>
+        <View style={{ padding: 5, alignSelf: "stretch" }}>
           <ImageBackground
-            style={{ height: 150 }}
-            source={require("../../../assets/images/logo-branca.png")}
+            resizeMode="contain"
+            style={{ height: 120 }}
+            source={require("../../../assets/images/logoBranca.png")}
           />
         </View>
         <View
           style={{
             flex: 1,
-            backgroundColor: "white",
             paddingTop: 10,
+            backgroundColor: "white",
             borderBottomEndRadius: 50,
           }}
         >

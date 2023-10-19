@@ -1,5 +1,5 @@
 import DrawerRoutes from "./drawer.routes";
-import { Login } from "../modules";
+import { AddClients, Login } from "../modules";
 import { Config } from "../modules";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -12,6 +12,18 @@ export default function StackRoutes() {
         name="login"
         component={Login}
         options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="addClients"
+        component={AddClients}
+        options={{
+          title: " Adicionar Cliente",
+          statusBarColor: "#009e54",
+          headerTintColor: "white",
+          headerTitleAlign: "center",
+          headerStyle: { backgroundColor: "#009e54" },
+        }}
       />
 
       {/* <Stack.Screen
@@ -29,7 +41,7 @@ export default function StackRoutes() {
       <Stack.Screen
         name="drawer"
         component={DrawerRoutes}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, statusBarColor: "#009e54" }}
       />
     </Stack.Navigator>
   );

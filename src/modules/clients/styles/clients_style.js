@@ -15,8 +15,8 @@ export const styles = StyleSheet.create({
   inputSearchView: {
     width: "100%",
     borderRadius: 30,
-    backgroundColor: "#F5F5F5",
-    borderColor: "#rgba(0, 0, 0, 0.65)",
     borderWidth: 0.5,
+    backgroundColor: "#F5F5F5",
+    borderColor: "rgba(0, 0, 0)",
   },
 });

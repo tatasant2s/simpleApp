@@ -41,6 +41,14 @@ export default function DrawerRoutes() {
         options={{
           title: "Clientes",
           headerTitle: "Clientes",
+          headerRight: () => (
+            <TouchableOpacity
+              style={{ padding: 15 }}
+              onPress={() => navigation.navigate("addClients")}
+            >
+              <Feather name="user-plus" size={22} color="white" />
+            </TouchableOpacity>
+          ),
           drawerLabelStyle: { color: "black" },
           drawerIcon: () => <Feather name="users" size={20} color="black" />,
         }}
