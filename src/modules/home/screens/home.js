@@ -1,7 +1,6 @@
 import { View } from "react-native";
-import { Buttons } from "../../../shared/components/button/button";
-import { useNavigation } from "@react-navigation/native";
 import { Text } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
   const { navigate } = useNavigation();

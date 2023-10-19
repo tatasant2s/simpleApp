@@ -1,7 +1,7 @@
-import { TextInput } from "react-native-paper";
 import { View } from "react-native";
-import { Feather } from "react-native-vector-icons";
 import { styles } from "./inputSearch_style";
+import { Feather } from "react-native-vector-icons";
+import { TextInput } from "react-native-paper";
 
 export const InputSearch = (props) => {
   const { children, ...res } = props;

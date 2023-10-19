@@ -1,6 +1,6 @@
 import { TextInput } from "react-native-paper";
-import { styles } from "./input_style";
 import { View } from "react-native";
+import { styles } from "./input_style";
 
 export const Input = (props) => {
   const { children, ...res } = props;

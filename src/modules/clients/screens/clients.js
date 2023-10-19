@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { styles } from "../styles/clients_style";
-import { InputSearch } from "../../../shared/components/inputSearch/inputSearch";
+import { InputSearch } from "../../../shared/components";
 
 export default function Clients() {
   return (

@@ -1,12 +1,12 @@
 import { Home } from "../modules";
-import Config from "../modules/config/screens/config";
 import { Login } from "../modules";
+import { Config } from "../modules";
 import { Clients } from "../modules";
 import { Feather } from "react-native-vector-icons";
-import { CustomDrawer } from "../shared/components/drawer/customDrawer";
+import { CustomDrawer } from "../shared/components";
 import { useNavigation } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import { TouchableOpacity } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Drawer = createDrawerNavigator();
 

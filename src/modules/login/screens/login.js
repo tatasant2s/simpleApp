@@ -1,7 +1,7 @@
-import { Input } from "../../../shared/components/input/input";
+import { Input } from "../../../shared/components";
 import { styles } from "../styles/login_style";
 import { Feather } from "react-native-vector-icons";
-import { Buttons } from "../../../shared/components/button/button";
+import { Buttons } from "../../../shared/components";
 import { Image, TouchableOpacity, View } from "react-native";
 
 export default function Login() {
