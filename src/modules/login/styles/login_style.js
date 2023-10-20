@@ -20,9 +20,7 @@ export const styles = StyleSheet.create({
   },
 
   imageView: {
-    width: "100%",
-    borderColor: "black",
-    marginBottom: 40,
-    padding: 80,
+    width: "90%",
+    height: "30%",
   },
 });

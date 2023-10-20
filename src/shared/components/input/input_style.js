@@ -12,9 +12,10 @@ export const styles = StyleSheet.create({
 
   inputView: {
     width: "100%",
-    borderRadius: 15,
-    backgroundColor: "white",
+    borderWidth: 2,
     borderColor: "#009e54",
-    borderWidth: 1.5,
+    backgroundColor: "white",
+    borderBottomEndRadius: 20,
+    borderTopLeftRadius: 20,
   },
 });

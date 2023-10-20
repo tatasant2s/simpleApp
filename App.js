@@ -1,7 +1,11 @@
 import "react-native-gesture-handler";
 import Routes from "./src/routes";
-import { StatusBar } from "react-native";
+import { PaperProvider } from "react-native-paper";
 
 export default function App() {
-  return <Routes />;
+  return (
+    <PaperProvider>
+      <Routes />
+    </PaperProvider>
+  );
 }
