@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { Input } from "../../../shared/components";
+import { Input, SelectType } from "../../../shared/components";
 import { styles } from "../styles/addClients_style";
 
 export default function AddClients() {
@@ -36,6 +36,7 @@ export default function AddClients() {
           style={styles.inputView}
           label="Telefone:"
         />
+        <SelectType />
       </View>
     </View>
   );
