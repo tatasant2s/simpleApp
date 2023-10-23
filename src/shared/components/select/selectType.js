@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { View } from "react-native";
-import { PaperSelect } from "react-native-paper-select";
-import { styles } from "./selectType_style";
 import SelectDropdown from "react-native-select-dropdown";
+import { View } from "react-native";
+import { styles } from "./selectType_style";
 import { Feather } from "react-native-vector-icons";
 
 export const SelectType = () => {
@@ -21,7 +19,7 @@ export const SelectType = () => {
         rowTextForSelection={(item, index) => {
           return item;
         }}
-        defaultButtonText={"Tipo de cliente"}
+        defaultButtonText={"Tipo de Cliente"}
         buttonStyle={styles.buttonStyle}
         buttonTextStyle={{ color: "#706f6f", fontSize: 16 }}
         dropdownStyle={styles.dropDownStyle}

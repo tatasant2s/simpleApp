@@ -1,10 +1,10 @@
 import { Home } from "../modules";
 import { Login } from "../modules";
-import { Config } from "../modules";
 import { Clients } from "../modules";
 import { Feather } from "react-native-vector-icons";
 import { CustomDrawer } from "../shared/components";
 import { useNavigation } from "@react-navigation/native";
+import { ConfigPrincipal } from "../modules";
 import { TouchableOpacity } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
@@ -22,7 +22,7 @@ export default function DrawerRoutes() {
         headerTintColor: "white",
         headerStyle: { backgroundColor: "#009e54" },
         drawerStyle: { borderBottomEndRadius: 50 },
-        drawerActiveTintColor: "rgba(0, 0, 0, 0.65)",
+        drawerActiveTintColor: "black",
       }}
     >
       <Drawer.Screen
@@ -55,8 +55,8 @@ export default function DrawerRoutes() {
       />
 
       <Drawer.Screen
-        name="config"
-        component={Config}
+        name="configPrincipal"
+        component={ConfigPrincipal}
         options={{
           title: "Configurações",
           headerTitle: "Configurações",
