@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import { Input } from "../../../shared/components";
-import { styles } from "./configLogin_style";
+import { styles } from "../styles/configLogin_style";
 
 export default function ConfigLogin() {
   return (

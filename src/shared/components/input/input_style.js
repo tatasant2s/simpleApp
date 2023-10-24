@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#009e54",
     backgroundColor: "white",
-    borderTopLeftRadius: 20,
     borderBottomEndRadius: 20,
+    borderTopLeftRadius: 20,
   },
 });

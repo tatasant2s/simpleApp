@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
 
   imageView: {
     width: "90%",
-    height: "30%",
+    height: "25%",
+    marginBottom: 10,
   },
 });

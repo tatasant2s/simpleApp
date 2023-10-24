@@ -28,7 +28,7 @@ export default function Login() {
           source={require("../../../assets/images/LogoPadrao.png")}
         />
         <Input label="Usuário" mode="outlined" />
-        <Input label="Senha" mode="outlined" />
+        <Input label="Senha" mode="outlined" secureTextEntry />
         <Buttons> Login </Buttons>
       </View>
     </TouchableWithoutFeedback>

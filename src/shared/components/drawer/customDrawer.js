@@ -9,7 +9,6 @@ export const CustomDrawer = (props) => {
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
         contentContainerStyle={{
-          height: "100%",
           backgroundColor: "#009e54",
           borderBottomEndRadius: 50,
         }}
@@ -24,8 +23,7 @@ export const CustomDrawer = (props) => {
         </View>
         <View
           style={{
-            flex: 1,
-            paddingTop: 10,
+            paddingTop: 5,
             backgroundColor: "white",
             borderBottomEndRadius: 50,
           }}
