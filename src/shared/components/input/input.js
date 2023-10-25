@@ -26,6 +26,7 @@ export const Input = ({ secureTextEntry, ...props }) => {
                   name={secure ? "eye" : "eye-off"}
                   onPress={handleOnPressEye}
                   size={20}
+                  color="#009e54"
                 />
               )}
             />
