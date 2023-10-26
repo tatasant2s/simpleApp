@@ -33,7 +33,7 @@ export const Input = ({ secureTextEntry, ...props }) => {
           )
         }
         {...props}
-      ></TextInput>
+      />
     </View>
   );
 };

@@ -3,16 +3,13 @@ import { View } from "react-native";
 import { styles } from "./selectType_style";
 import { Feather } from "react-native-vector-icons";
 
-export const SelectType = () => {
+export const SelectType = ({ ...props }) => {
   const items = ["Produtor", "Cooperado", "Distribuidor"];
 
   return (
     <View style={styles.container}>
       <SelectDropdown
         data={items}
-        onSelect={(selectedItem, index) => {
-          console.log(selectedItem, index);
-        }}
         buttonTextAfterSelection={(selectedItem, index) => {
           return selectedItem;
         }}
@@ -27,11 +24,12 @@ export const SelectType = () => {
           return (
             <Feather
               name={isOpened ? "chevron-up" : "chevron-down"}
-              color={"#444"}
               size={20}
+              color={"#444"}
             />
           );
         }}
+        {...props}
       />
     </View>
   );
