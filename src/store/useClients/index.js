@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const clientsSlice = createSlice({
   name: "clientsReducer",
   initialState: {
+    //form: {},
     clients: [
       {
         name: "Waltinho",
@@ -35,6 +36,9 @@ export const clientsSlice = createSlice({
     setClientsAction: (state, action) => {
       state.clients.push(action.payload);
     },
+    // setFormAction: (state, action) => {
+    //   state.form = action.payload;
+    // },
   },
 });
 

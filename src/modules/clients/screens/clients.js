@@ -1,5 +1,5 @@
 import { styles } from "../styles/clients_style";
-import { useClients } from "../../../store/useClients/useClients";
+import { useClients } from "../../../store/redux";
 import { InputSearch } from "../../../shared/components";
 import {
   TouchableWithoutFeedback,
@@ -12,7 +12,6 @@ import {
 
 export default function Clients() {
   const { clients } = useClients();
-  //console.log(clients);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

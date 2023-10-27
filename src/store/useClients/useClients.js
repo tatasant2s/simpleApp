@@ -10,8 +10,14 @@ export const useClients = () => {
     dispatch(setClientsAction(currentClients));
   }
 
+  /*function setForm(value, key) {
+    dispatch(setFormAction({ ...form, [key]: value }));
+  }*/
+
   return {
     clients,
     setClients,
+    // form,
+    // setForm,
   };
 };

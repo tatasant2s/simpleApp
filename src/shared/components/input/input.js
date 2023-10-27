@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import { styles } from "./input_style";
 import { Feather } from "react-native-vector-icons";
-import { useState } from "react";
 import { TextInput } from "react-native-paper";
+import { forwardRef, useState } from "react";
 
-export const Input = ({ secureTextEntry, ...props }) => {
+export const Input = forwardRef(({ secureTextEntry, ...props }, ref) => {
   const [secure, setSecure] = useState(!!secureTextEntry);
 
   function handleOnPressEye() {
@@ -18,6 +18,7 @@ export const Input = ({ secureTextEntry, ...props }) => {
         outlineStyle={styles.inputView}
         selectionColor="#87CEFA"
         secureTextEntry={secure}
+        ref={ref}
         right={
           secureTextEntry && (
             <TextInput.Icon
@@ -36,4 +37,4 @@ export const Input = ({ secureTextEntry, ...props }) => {
       />
     </View>
   );
-};
+});

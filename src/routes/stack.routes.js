@@ -1,12 +1,14 @@
 import DrawerRoutes from "./drawer.routes";
 import { Feather } from "react-native-vector-icons";
 import { TouchableOpacity } from "react-native";
-import { AddClients, ConfigLogin, Login } from "../modules";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AddClients, ConfigLogin, Login } from "../modules";
 
 const Stack = createNativeStackNavigator();
 
 export default function StackRoutes() {
+  //const { setClients } = useClients();
+
   return (
     <Stack.Navigator screenOptions={{ title: "" }}>
       <Stack.Screen
@@ -41,11 +43,6 @@ export default function StackRoutes() {
           headerTitle: "Adicionar Cliente",
           headerTitleAlign: "center",
           headerStyle: { backgroundColor: "#009e54" },
-          headerRight: () => (
-            <TouchableOpacity>
-              <Feather name="check-circle" size={22} color="white" />
-            </TouchableOpacity>
-          ),
         }}
       />
 
@@ -60,3 +57,13 @@ export default function StackRoutes() {
     </Stack.Navigator>
   );
 }
+
+//headerRight: () => (
+// <TouchableOpacity
+//   onPress={() => {
+//     setClients(form);
+//   }}
+// >
+//   <Feather name="check-circle" size={22} color="white" />
+// </TouchableOpacity>
+//),

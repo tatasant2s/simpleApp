@@ -1,13 +1,21 @@
-import { View } from "react-native";
-import { Button } from "react-native-paper";
+import {
+  TouchableWithoutFeedback,
+  View,
+  Keyboard,
+  ScrollView,
+} from "react-native";
 import { styles } from "../styles/addClients_style";
-import { useState } from "react";
-import { useClients } from "../../../store/useClients/useClients";
-import { Input, SelectType } from "../../../shared/components";
+import { useClients } from "../../../store/redux";
+import { useRef, useState } from "react";
+import { Buttons, Input, SelectType } from "../../../shared/components";
 
 export default function AddClients() {
   const { setClients } = useClients();
   const [value, setValue] = useState({});
+  const cpfInput = useRef(null);
+  const emailInput = useRef(null);
+  const celInput = useRef(null);
+  const telInput = useRef(null);
 
   function handleOnChangeText(event, key) {
     setValue((prevState) => ({ ...prevState, [key]: event }));
@@ -15,55 +23,70 @@ export default function AddClients() {
 
   function handleCreateClients() {
     setClients(value);
-    console.log(value);
+    console.log("data:", value);
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.containerView}>
-        <Input
-          theme={{ colors: { primary: "black" } }}
-          underlineStyle={styles.underlineStyle}
-          style={styles.inputView}
-          label="Nome:"
-          onChangeText={(event) => handleOnChangeText(event, "name")}
-        />
-        <Input
-          theme={{ colors: { primary: "black" } }}
-          underlineStyle={styles.underlineStyle}
-          style={styles.inputView}
-          label="CPF/CNPJ:"
-          onChangeText={(event) => handleOnChangeText(event, "cpf")}
-        />
-        <Input
-          theme={{ colors: { primary: "black" } }}
-          underlineStyle={styles.underlineStyle}
-          style={styles.inputView}
-          label="Email:"
-          onChangeText={(event) => handleOnChangeText(event, "email")}
-        />
-        <Input
-          theme={{ colors: { primary: "black" } }}
-          underlineStyle={styles.underlineStyle}
-          style={styles.inputView}
-          label="Celular:"
-          onChangeText={(event) => handleOnChangeText(event, "cel")}
-        />
-        <Input
-          theme={{ colors: { primary: "black" } }}
-          underlineStyle={styles.underlineStyle}
-          style={styles.inputView}
-          label="Telefone:"
-          onChangeText={(event) => handleOnChangeText(event, "tel")}
-        />
-        <SelectType
-          onSelect={(selectedItem, index) => {
-            setValue(selectedItem);
-            console.log(selectedItem, index);
-          }}
-        />
-        <Button onPress={handleCreateClients}> enviar</Button>
-      </View>
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ScrollView>
+        <View style={styles.container}>
+          <Input
+            theme={{ colors: { primary: "black" } }}
+            underlineStyle={styles.underlineStyle}
+            style={styles.inputView}
+            label="Nome:"
+            onSubmitEditing={() => cpfInput?.current?.focus()}
+            onChangeText={(event) => handleOnChangeText(event, "name")}
+          />
+          <Input
+            theme={{ colors: { primary: "black" } }}
+            underlineStyle={styles.underlineStyle}
+            style={styles.inputView}
+            keyboardType="numeric"
+            label="CPF/CNPJ:"
+            ref={cpfInput}
+            onSubmitEditing={() => emailInput?.current?.focus()}
+            onChangeText={(event) => handleOnChangeText(event, "cpf")}
+          />
+          <Input
+            theme={{ colors: { primary: "black" } }}
+            underlineStyle={styles.underlineStyle}
+            style={styles.inputView}
+            keyboardType="email-address"
+            label="Email:"
+            ref={emailInput}
+            onSubmitEditing={() => celInput?.current?.focus()}
+            onChangeText={(event) => handleOnChangeText(event, "email")}
+          />
+          <Input
+            theme={{ colors: { primary: "black" } }}
+            underlineStyle={styles.underlineStyle}
+            style={styles.inputView}
+            keyboardType="numeric"
+            label="Celular:"
+            ref={celInput}
+            onSubmitEditing={() => telInput?.current?.focus()}
+            onChangeText={(event) => handleOnChangeText(event, "cel")}
+          />
+          <Input
+            theme={{ colors: { primary: "black" } }}
+            underlineStyle={styles.underlineStyle}
+            style={styles.inputView}
+            keyboardType="numeric"
+            label="Telefone:"
+            ref={telInput}
+            onChangeText={(event) => handleOnChangeText(event, "tel")}
+          />
+          <SelectType
+            onSelect={(selectedItem) => {
+              handleOnChangeText(selectedItem, "type");
+            }}
+          />
+          <View style={styles.buttons}>
+            <Buttons onPress={handleCreateClients}> Cadastrar </Buttons>
+          </View>
+        </View>
+      </ScrollView>
+    </TouchableWithoutFeedback>
   );
 }

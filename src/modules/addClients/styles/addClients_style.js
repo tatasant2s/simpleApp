@@ -5,9 +5,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     backgroundColor: "white",
-  },
-
-  containerView: {
     padding: 10,
     marginTop: 5,
   },
@@ -25,5 +22,10 @@ export const styles = StyleSheet.create({
     borderTopEndRadius: 10,
     borderBottomStartRadius: 10,
     borderBottomEndRadius: 10,
+  },
+
+  buttons: {
+    marginTop: 10,
+    marginHorizontal: 20,
   },
 });
