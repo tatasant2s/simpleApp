@@ -28,8 +28,8 @@ export default function AddClients() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <ScrollView>
-        <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <View>
           <Input
             theme={{ colors: { primary: "black" } }}
             underlineStyle={styles.underlineStyle}
@@ -83,7 +83,9 @@ export default function AddClients() {
             }}
           />
           <View style={styles.buttons}>
-            <Buttons onPress={handleCreateClients}> Cadastrar </Buttons>
+            <Buttons loading onPress={handleCreateClients}>
+              Cadastrar
+            </Buttons>
           </View>
         </View>
       </ScrollView>
