@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "white",
     padding: 10,
-    marginTop: 5,
   },
 
   underlineStyle: {
