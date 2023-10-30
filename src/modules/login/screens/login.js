@@ -14,10 +14,6 @@ import {
 export default function Login() {
   const navigation = useNavigation();
 
-  function handleOnLogin() {
-    navigation.navigate("drawer");
-  }
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
@@ -33,7 +29,7 @@ export default function Login() {
         />
         <Input label="Usuário" mode="outlined" />
         <Input label="Senha" mode="outlined" secureTextEntry />
-        <Buttons onPress={handleOnLogin}> Login </Buttons>
+        <Buttons> Login </Buttons>
       </View>
     </TouchableWithoutFeedback>
   );
