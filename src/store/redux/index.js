@@ -1,3 +1,6 @@
-import { useClients } from "../useClients/useClients";
+import clientsReducer from "../useClients";
+import { configureStore } from "@reduxjs/toolkit";
 
-export { useClients };
+export default configureStore({
+  reducer: { clientsReducer },
+});

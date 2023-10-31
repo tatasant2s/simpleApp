@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     height: "100%",
-    width: "100%",
     backgroundColor: "white",
   },
 
@@ -13,5 +12,10 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
     borderColor: "black",
     backgroundColor: "#F5F5F5",
+  },
+
+  flatListView: {
+    height: "90%",
+    padding: 5,
   },
 });

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useAppSelector } from "../useSelector";
+import { useAppSelector } from "../redux/useSelector";
 import { setClientsAction } from ".";
 
 export const useClients = () => {

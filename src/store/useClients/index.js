@@ -6,7 +6,7 @@ export const clientsSlice = createSlice({
     //form: {},
     clients: [
       {
-        name: "Waltinho",
+        name: "Waltinho PP",
         cpf: 47999834076,
         email: "waltinhocria@gmail.com",
         cel: 999458755,
@@ -14,7 +14,7 @@ export const clientsSlice = createSlice({
         type: "Distribuidor",
       },
       {
-        name: "Barbixa",
+        name: "Barbixa ixa",
         cpf: 91773174088,
         email: "barbizinha@gmail.com",
         cel: 992657847,

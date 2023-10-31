@@ -1,13 +1,12 @@
 import { styles } from "../styles/clients_style";
-import { useClients } from "../../../store/redux";
-import { InputSearch } from "../../../shared/components";
+import { useClients } from "../../../store";
+import { CardList, InputSearch } from "../../../shared/components";
 import {
   TouchableWithoutFeedback,
   View,
   Keyboard,
   KeyboardAvoidingView,
-  ScrollView,
-  Text,
+  FlatList,
 } from "react-native";
 
 export default function Clients() {
@@ -16,25 +15,20 @@ export default function Clients() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        <KeyboardAvoidingView behavior="padding">
+        <KeyboardAvoidingView behavior="height">
           <InputSearch
             outlineStyle={styles.inputSearchView}
             placeholder="Buscar"
             mode="outlined"
           />
-          <ScrollView>
-            {clients.map((cl) => (
-              <Text key={cl.name}>
-                {cl.name} - {cl.type}
-              </Text>
-            ))}
-          </ScrollView>
+          <View style={styles.flatListView}>
+            <FlatList
+              data={clients}
+              renderItem={({ item }) => <CardList cli={item} />}
+            />
+          </View>
         </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>
   );
 }
-
-/*
-cpf, nome, tipo
-*/
