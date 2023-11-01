@@ -35,6 +35,7 @@ export const clientsSlice = createSlice({
   reducers: {
     setClientsAction: (state, action) => {
       state.clients.push(action.payload);
+      //console.log("dados:", action.payload);
     },
     // setFormAction: (state, action) => {
     //   state.form = action.payload;

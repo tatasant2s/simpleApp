@@ -1,23 +1,19 @@
 import { styles } from "../styles/addClients_style";
-import { useClients } from "../../../store";
 import { useRef, useState } from "react";
-import {
-  Buttons,
-  Input,
-  ModalView,
-  SelectType,
-} from "../../../shared/components";
+import { useClients, useModal } from "../../../store";
+import { Buttons, Input, SelectType } from "../../../shared/components";
 import {
   TouchableWithoutFeedback,
   View,
   Keyboard,
   ScrollView,
 } from "react-native";
-import { useModal } from "../../../store";
+import { ModalView } from "../../../shared/components";
 
 export default function AddClients() {
   const { setClients } = useClients();
   const [value, setValue] = useState({});
+  const nameInput = useRef(null);
   const cpfInput = useRef(null);
   const emailInput = useRef(null);
   const celInput = useRef(null);
@@ -30,7 +26,6 @@ export default function AddClients() {
 
   function handleCreateClients() {
     setModal(!modal);
-    console.log("modal aberto:", !modal);
     setClients(value);
     console.log("data:", value);
   }
@@ -44,6 +39,7 @@ export default function AddClients() {
             underlineStyle={styles.underlineStyle}
             style={styles.inputView}
             label="Nome:"
+            ref={nameInput}
             onSubmitEditing={() => cpfInput?.current?.focus()}
             onChangeText={(event) => handleOnChangeText(event, "name")}
           />
