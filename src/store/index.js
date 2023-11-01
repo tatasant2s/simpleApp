@@ -1,3 +1,4 @@
+import { useModal } from "./useModal/useModal";
 import { useClients } from "./useClients/useClients";
 
-export { useClients };
+export { useModal, useClients };

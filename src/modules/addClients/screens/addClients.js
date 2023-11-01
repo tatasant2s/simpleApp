@@ -1,13 +1,19 @@
 import { styles } from "../styles/addClients_style";
 import { useClients } from "../../../store";
 import { useRef, useState } from "react";
-import { Buttons, Input, SelectType } from "../../../shared/components";
+import {
+  Buttons,
+  Input,
+  ModalView,
+  SelectType,
+} from "../../../shared/components";
 import {
   TouchableWithoutFeedback,
   View,
   Keyboard,
   ScrollView,
 } from "react-native";
+import { useModal } from "../../../store";
 
 export default function AddClients() {
   const { setClients } = useClients();
@@ -16,12 +22,15 @@ export default function AddClients() {
   const emailInput = useRef(null);
   const celInput = useRef(null);
   const telInput = useRef(null);
+  const { modal, setModal } = useModal();
 
   function handleOnChangeText(event, key) {
     setValue((prevState) => ({ ...prevState, [key]: event }));
   }
 
   function handleCreateClients() {
+    setModal(!modal);
+    console.log("modal aberto:", !modal);
     setClients(value);
     console.log("data:", value);
   }
@@ -82,9 +91,9 @@ export default function AddClients() {
               handleOnChangeText(selectedItem, "type");
             }}
           />
-          <View style={styles.buttons}>
+          <ModalView visible={modal}>
             <Buttons onPress={handleCreateClients}> Cadastrar </Buttons>
-          </View>
+          </ModalView>
         </View>
       </ScrollView>
     </TouchableWithoutFeedback>
