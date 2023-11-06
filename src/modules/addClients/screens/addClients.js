@@ -1,97 +1,102 @@
+import { View } from "react-native";
+import { useRef } from "react";
 import { styles } from "../styles/addClients_style";
-import { useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useClients, useModal } from "../../../store";
-import { Buttons, Input, SelectType } from "../../../shared/components";
 import {
-  TouchableWithoutFeedback,
-  View,
-  Keyboard,
-  ScrollView,
-} from "react-native";
-import { ModalView } from "../../../shared/components";
+  Buttons,
+  Input,
+  ModalView,
+  SelectType,
+} from "../../../shared/components";
 
 export default function AddClients() {
   const { setClients } = useClients();
-  const [value, setValue] = useState({});
-  const nameInput = useRef(null);
+  const { handleSubmit, control } = useForm();
+  const { modal, setModal } = useModal();
   const cpfInput = useRef(null);
   const emailInput = useRef(null);
   const celInput = useRef(null);
   const telInput = useRef(null);
-  const { modal, setModal } = useModal();
 
-  function handleOnChangeText(event, key) {
-    setValue((prevState) => ({ ...prevState, [key]: event }));
-  }
-
-  function handleCreateClients() {
+  function handleCreateClients(data) {
     setModal(!modal);
-    setClients(value);
-    console.log("data:", value);
+    setClients(data);
+    console.log(data);
   }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <ScrollView style={styles.container}>
-        <View>
-          <Input
-            theme={{ colors: { primary: "black" } }}
-            underlineStyle={styles.underlineStyle}
-            style={styles.inputView}
-            label="Nome:"
-            ref={nameInput}
-            onSubmitEditing={() => cpfInput?.current?.focus()}
-            onChangeText={(event) => handleOnChangeText(event, "name")}
-          />
-          <Input
-            theme={{ colors: { primary: "black" } }}
-            underlineStyle={styles.underlineStyle}
-            style={styles.inputView}
-            keyboardType="numeric"
-            label="CPF/CNPJ:"
-            ref={cpfInput}
-            onSubmitEditing={() => emailInput?.current?.focus()}
-            onChangeText={(event) => handleOnChangeText(event, "cpf")}
-          />
-          <Input
-            theme={{ colors: { primary: "black" } }}
-            underlineStyle={styles.underlineStyle}
-            style={styles.inputView}
-            keyboardType="email-address"
-            label="Email:"
-            ref={emailInput}
-            onSubmitEditing={() => celInput?.current?.focus()}
-            onChangeText={(event) => handleOnChangeText(event, "email")}
-          />
-          <Input
-            theme={{ colors: { primary: "black" } }}
-            underlineStyle={styles.underlineStyle}
-            style={styles.inputView}
-            keyboardType="numeric"
-            label="Celular:"
-            ref={celInput}
-            onSubmitEditing={() => telInput?.current?.focus()}
-            onChangeText={(event) => handleOnChangeText(event, "cel")}
-          />
-          <Input
-            theme={{ colors: { primary: "black" } }}
-            underlineStyle={styles.underlineStyle}
-            style={styles.inputView}
-            keyboardType="numeric"
-            label="Telefone:"
-            ref={telInput}
-            onChangeText={(event) => handleOnChangeText(event, "tel")}
-          />
-          <SelectType
-            onSelect={(selectedItem) => {
-              handleOnChangeText(selectedItem, "type");
-            }}
-          />
-          <ModalView visible={modal}>
-            <Buttons onPress={handleCreateClients}> Cadastrar </Buttons>
-          </ModalView>
+    <View style={styles.container}>
+      <Input
+        control={control}
+        theme={{ colors: { primary: "black" } }}
+        underlineStyle={styles.underlineStyle}
+        style={styles.inputView}
+        name="name"
+        label="Nome:"
+        rules={{ required: true }}
+        onSubmitEditing={() => cpfInput?.current?.focus()}
+      />
+
+      <Input
+        control={control}
+        theme={{ colors: { primary: "black" } }}
+        underlineStyle={styles.underlineStyle}
+        style={styles.inputView}
+        name="cpf"
+        label="CPF/CNPJ:"
+        ref={cpfInput}
+        keyboardType="numeric"
+        rules={{ required: true }}
+        onSubmitEditing={() => emailInput?.current?.focus()}
+      />
+
+      <Input
+        control={control}
+        theme={{ colors: { primary: "black" } }}
+        underlineStyle={styles.underlineStyle}
+        style={styles.inputView}
+        name="email"
+        label="Email:"
+        ref={emailInput}
+        keyboardType="numeric"
+        rules={{ required: true }}
+        onSubmitEditing={() => celInput?.current?.focus()}
+      />
+
+      <Input
+        control={control}
+        theme={{ colors: { primary: "black" } }}
+        underlineStyle={styles.underlineStyle}
+        style={styles.inputView}
+        name="cel"
+        label="Celular:"
+        ref={celInput}
+        keyboardType="numeric"
+        rules={{ required: true }}
+        onSubmitEditing={() => telInput?.current?.focus()}
+      />
+
+      <Input
+        control={control}
+        theme={{ colors: { primary: "black" } }}
+        underlineStyle={styles.underlineStyle}
+        style={styles.inputView}
+        name="tel"
+        label="Telefone:"
+        ref={telInput}
+        keyboardType="numeric"
+        rules={{ required: true }}
+      />
+
+      <SelectType control={control} name="type" rules={{ required: true }} />
+      <ModalView visible={modal}>
+        <View style={styles.buttons}>
+          <Buttons onPress={handleSubmit(handleCreateClients)}>
+            Cadastrar
+          </Buttons>
         </View>
-      </ScrollView>
-    </TouchableWithoutFeedback>
+      </ModalView>
+    </View>
   );
 }

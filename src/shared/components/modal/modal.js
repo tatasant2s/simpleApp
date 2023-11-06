@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Alert, Modal, View, Text, TouchableOpacity } from "react-native";
+import React from "react";
+import { Modal, View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./modal_style";
 import { useModal } from "../../../store";
 import { Feather } from "react-native-vector-icons";
@@ -17,7 +17,7 @@ export const ModalView = ({ ...props }) => {
         }}
         {...props}
       >
-        <View style={styles.centeredView}>
+        <View style={styles.container}>
           <View style={styles.modalView}>
             <Feather name="check-circle" color="#009e54" size={60} />
             <Text style={styles.modalText}> Cadastrado com Sucesso! </Text>

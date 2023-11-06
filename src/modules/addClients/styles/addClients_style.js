@@ -25,6 +25,5 @@ export const styles = StyleSheet.create({
 
   buttons: {
     marginTop: 10,
-    marginHorizontal: 20,
   },
 });

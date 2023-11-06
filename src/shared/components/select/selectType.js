@@ -2,20 +2,17 @@ import SelectDropdown from "react-native-select-dropdown";
 import { View } from "react-native";
 import { styles } from "./selectType_style";
 import { Feather } from "react-native-vector-icons";
+import { useController } from "react-hook-form";
 
-export const SelectType = ({ ...props }) => {
+export const SelectType = ({ control, name, rules, ...props }) => {
+  const { field } = useController({ control, name, rules });
   const items = ["Produtor", "Cooperado", "Distribuidor"];
 
   return (
     <View style={styles.container}>
       <SelectDropdown
         data={items}
-        buttonTextAfterSelection={(selectedItem, index) => {
-          return selectedItem;
-        }}
-        rowTextForSelection={(item, index) => {
-          return item;
-        }}
+        onSelect={field.onChange}
         defaultButtonText={"Tipo de Cliente"}
         buttonStyle={styles.buttonStyle}
         buttonTextStyle={{ color: "#706f6f", fontSize: 16 }}
