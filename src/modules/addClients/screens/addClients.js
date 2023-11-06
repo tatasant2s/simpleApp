@@ -12,7 +12,11 @@ import {
 
 export default function AddClients() {
   const { setClients } = useClients();
-  const { handleSubmit, control } = useForm();
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm();
   const { modal, setModal } = useModal();
   const cpfInput = useRef(null);
   const emailInput = useRef(null);
@@ -34,7 +38,8 @@ export default function AddClients() {
         style={styles.inputView}
         name="name"
         label="Nome:"
-        rules={{ required: true }}
+        rules={{ required: "Por favor, informe um nome." }}
+        errorMessage={errors.name?.message}
         onSubmitEditing={() => cpfInput?.current?.focus()}
       />
 
@@ -47,7 +52,8 @@ export default function AddClients() {
         label="CPF/CNPJ:"
         ref={cpfInput}
         keyboardType="numeric"
-        rules={{ required: true }}
+        rules={{ required: "Por favor, informe um CPF." }}
+        errorMessage={errors.cpf?.message}
         onSubmitEditing={() => emailInput?.current?.focus()}
       />
 
@@ -60,7 +66,8 @@ export default function AddClients() {
         label="Email:"
         ref={emailInput}
         keyboardType="numeric"
-        rules={{ required: true }}
+        rules={{ required: "Por favor, informe um email." }}
+        errorMessage={errors.email?.message}
         onSubmitEditing={() => celInput?.current?.focus()}
       />
 
@@ -73,7 +80,8 @@ export default function AddClients() {
         label="Celular:"
         ref={celInput}
         keyboardType="numeric"
-        rules={{ required: true }}
+        rules={{ required: "Por favor, informe um celular." }}
+        errorMessage={errors.cel?.message}
         onSubmitEditing={() => telInput?.current?.focus()}
       />
 
@@ -86,7 +94,8 @@ export default function AddClients() {
         label="Telefone:"
         ref={telInput}
         keyboardType="numeric"
-        rules={{ required: true }}
+        rules={{ required: "Por favor, informe um telefone." }}
+        errorMessage={errors.tel?.message}
       />
 
       <SelectType control={control} name="type" rules={{ required: true }} />

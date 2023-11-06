@@ -22,7 +22,7 @@ export const ModalView = ({ ...props }) => {
             <Feather name="check-circle" color="#009e54" size={60} />
             <Text style={styles.modalText}> Cadastrado com Sucesso! </Text>
             <TouchableOpacity
-              style={[styles.buttonClose]}
+              style={styles.buttonClose}
               onPress={() => setModal(!modal)}
             >
               <Text style={styles.textStyle}> OK </Text>

@@ -9,13 +9,13 @@ export const styles = StyleSheet.create({
   },
 
   modalView: {
-    padding: 30,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "black",
     backgroundColor: "white",
     borderRadius: 30,
     elevation: 5,
+    padding: 30,
   },
 
   modalText: {

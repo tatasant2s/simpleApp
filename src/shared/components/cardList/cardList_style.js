@@ -8,8 +8,12 @@ export const styles = StyleSheet.create({
   },
 
   viewClients: {
-    borderColor: "black",
     borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "gray",
+    backgroundColor: "white",
+    shadowColor: "black",
+    elevation: 3,
     padding: 15,
   },
 
