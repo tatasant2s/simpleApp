@@ -6,6 +6,7 @@ export const clientsSlice = createSlice({
     //form: {},
     clients: [
       {
+        id: 1,
         name: "Waltinho PP",
         cpf: 47999834076,
         email: "waltinhocria@gmail.com",
@@ -14,6 +15,7 @@ export const clientsSlice = createSlice({
         type: "Distribuidor",
       },
       {
+        id: 2,
         name: "Barbixa ixa",
         cpf: 91773174088,
         email: "barbizinha@gmail.com",
@@ -22,6 +24,7 @@ export const clientsSlice = createSlice({
         type: "Produtor",
       },
       {
+        id: 3,
         name: "Alexandre",
         cpf: 35337268007,
         email: "Alexandre@gmail.com",
@@ -34,15 +37,18 @@ export const clientsSlice = createSlice({
 
   reducers: {
     setClientsAction: (state, action) => {
-      state.clients.push(action.payload);
-      //console.log("dados:", action.payload);
+      state.clients.push({ ...action.payload, id: state.clients.length + 1 });
     },
+    setUpdateAction: (state, action) => {
+      state.clients[action.payload.id - 1] = { ...action.payload };
+    },
+
     // setFormAction: (state, action) => {
     //   state.form = action.payload;
     // },
   },
 });
 
-export const { setClientsAction } = clientsSlice.actions;
+export const { setClientsAction, setUpdateAction } = clientsSlice.actions;
 
 export default clientsSlice.reducer;

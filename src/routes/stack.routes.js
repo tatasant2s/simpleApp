@@ -2,7 +2,7 @@ import DrawerRoutes from "./drawer.routes";
 import { Feather } from "react-native-vector-icons";
 import { TouchableOpacity } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { AddClients, ConfigLogin, Login } from "../modules";
+import { AddClients, ConfigLogin, EditClients, Login } from "../modules";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +18,7 @@ export default function StackRoutes() {
       />
 
       <Stack.Screen
-        name="configLogin"
+        name="config_login"
         component={ConfigLogin}
         options={{
           title: "Configurações",
@@ -35,13 +35,25 @@ export default function StackRoutes() {
       />
 
       <Stack.Screen
-        name="addClients"
+        name="add_clients"
         component={AddClients}
         options={{
           statusBarColor: "#009e54",
-          headerTintColor: "white",
           headerTitle: "Adicionar Cliente",
           headerTitleAlign: "center",
+          headerTintColor: "white",
+          headerStyle: { backgroundColor: "#009e54" },
+        }}
+      />
+
+      <Stack.Screen
+        name="edit_clients"
+        component={EditClients}
+        options={{
+          statusBarColor: "#009e54",
+          headerTitle: "Editar Dados",
+          headerTitleAlign: "center",
+          headerTintColor: "white",
           headerStyle: { backgroundColor: "#009e54" },
         }}
       />

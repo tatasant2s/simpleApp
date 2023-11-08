@@ -17,10 +17,14 @@ export const styles = StyleSheet.create({
     padding: 15,
   },
 
+  text: {
+    fontWeight: "bold",
+  },
+
   editClients: {
     position: "absolute",
     right: 20,
-    bottom: 25,
+    bottom: 30,
     padding: 10,
   },
 });

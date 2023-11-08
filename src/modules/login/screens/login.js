@@ -16,15 +16,11 @@ export default function Login() {
   const navigation = useNavigation();
   const { control } = useForm();
 
-  function handleOnLogin() {
-    navigation.navigate("drawer");
-  }
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
         <View style={styles.iconView}>
-          <TouchableOpacity onPress={() => navigation.navigate("configLogin")}>
+          <TouchableOpacity onPress={() => navigation.navigate("config_login")}>
             <Feather name="settings" size={25} color="#009e54" />
           </TouchableOpacity>
         </View>
@@ -33,7 +29,7 @@ export default function Login() {
           resizeMode="contain"
           source={require("../../../assets/images/LogoPadrao.png")}
         />
-        <Input control={control} name="login" label="Usuário" mode="outlined" />
+        <Input control={control} name="user" label="Usuário" mode="outlined" />
         <Input
           control={control}
           name="password"
@@ -41,7 +37,8 @@ export default function Login() {
           mode="outlined"
           secureTextEntry
         />
-        <Buttons onPress={handleOnLogin}> Login </Buttons>
+
+        <Buttons onPress={() => navigation.navigate("drawer")}> Login </Buttons>
       </View>
     </TouchableWithoutFeedback>
   );

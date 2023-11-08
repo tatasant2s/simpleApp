@@ -1,4 +1,4 @@
-import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, Text, TouchableWithoutFeedback, View } from "react-native";
 import { styles } from "./input_style";
 import { Feather } from "react-native-vector-icons";
 import { useController } from "react-hook-form";
@@ -12,7 +12,6 @@ export const Input = forwardRef(
   ) => {
     const { field } = useController({ control, name, rules });
     const [secure, setSecure] = useState(!!secureTextEntry);
-    // const isValid = !!errorMessage;
 
     function handleOnPressEye() {
       setSecure(!secure);

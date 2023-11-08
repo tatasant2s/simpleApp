@@ -44,7 +44,7 @@ export default function DrawerRoutes() {
           headerRight: () => (
             <TouchableOpacity
               style={{ padding: 15 }}
-              onPress={() => navigation.navigate("addClients")}
+              onPress={() => navigation.navigate("add_clients")}
             >
               <Feather name="user-plus" size={22} color="white" />
             </TouchableOpacity>
@@ -55,7 +55,7 @@ export default function DrawerRoutes() {
       />
 
       <Drawer.Screen
-        name="configPrincipal"
+        name="config_main"
         component={ConfigPrincipal}
         options={{
           title: "Configurações",
