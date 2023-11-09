@@ -1,20 +1,32 @@
 import { View } from "react-native";
 import { styles } from "./inputSearch_style";
+import { useData } from "../../../store";
 import { Feather } from "react-native-vector-icons";
 import { TextInput } from "react-native-paper";
 
-export const InputSearch = (props) => {
-  const { children, ...res } = props;
+export const InputSearch = ({ ...props }) => {
+  const { data, setData } = useData();
+
+  function handleSubmit() {
+    setData(data);
+    //to.clear(); //limpar campo
+  }
 
   return (
     <View style={styles.container}>
       <TextInput
         right={
-          <TextInput.Icon icon={() => <Feather name="search" size={20} />} />
+          <TextInput.Icon
+            onPress={handleSubmit}
+            icon={() => <Feather name="search" size={20} />}
+          />
         }
-        {...res}
+        ref={(e) => (to = e)}
+        onSubmitEditing={handleSubmit}
+        onChangeText={setData}
+        {...props}
       >
-        {children}
+        {props.children}
       </TextInput>
     </View>
   );

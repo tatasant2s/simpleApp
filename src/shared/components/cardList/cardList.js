@@ -21,7 +21,7 @@ export const CardList = ({ cli }) => {
   return (
     <View style={styles.container}>
       <View style={styles.viewClients}>
-        {/* <Text> id: {cli.id} </Text> */}
+        <Text> id: {cli.id} </Text>
         <Text style={styles.text}> Nome: {cli.name}</Text>
         <Text> CPF/CNPJ: {cli.cpf} </Text>
         <Text> Tipo: {cli.type} </Text>

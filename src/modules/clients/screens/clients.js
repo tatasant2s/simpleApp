@@ -1,5 +1,5 @@
 import { styles } from "../styles/clients_style";
-import { useClients } from "../../../store";
+import { useClients, useData } from "../../../store";
 import { CardList, InputSearch } from "../../../shared/components";
 import {
   TouchableWithoutFeedback,
@@ -7,10 +7,20 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   FlatList,
+  ScrollView,
 } from "react-native";
 
 export default function Clients() {
+  const { data } = useData();
   const { clients } = useClients();
+
+  function handleSearchData(value) {
+    if (data === "") {
+      return value;
+    } else if (value.name.toLowerCase().includes(data.toLowerCase())) {
+      return value;
+    }
+  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -21,11 +31,21 @@ export default function Clients() {
             placeholder="Buscar"
             mode="outlined"
           />
-          <View style={styles.flatListView}>
-            <FlatList
-              data={clients}
-              renderItem={({ item }) => <CardList cli={item} />}
-            />
+
+          <View style={styles.listView}>
+            <ScrollView>
+              {clients
+                .filter((value) => handleSearchData(value))
+                .map((item, index) => (
+                  <CardList key={index} cli={item} />
+                ))}
+            </ScrollView>
+            {clients === "" && (
+              <FlatList
+                data={clients}
+                renderItem={({ item }) => <CardList cli={item} />}
+              />
+            )}
           </View>
         </KeyboardAvoidingView>
       </View>

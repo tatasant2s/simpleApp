@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
     shadowColor: "black",
     elevation: 3,
-    padding: 15,
+    padding: 20,
   },
 
   text: {

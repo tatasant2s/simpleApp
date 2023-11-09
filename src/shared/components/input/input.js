@@ -1,9 +1,9 @@
-import { Keyboard, Text, TouchableWithoutFeedback, View } from "react-native";
 import { styles } from "./input_style";
 import { Feather } from "react-native-vector-icons";
 import { useController } from "react-hook-form";
 import { forwardRef, useState } from "react";
 import { TextInput, HelperText } from "react-native-paper";
+import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
 
 export const Input = forwardRef(
   (
