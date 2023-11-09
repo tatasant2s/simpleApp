@@ -21,8 +21,6 @@ export const InputSearch = ({ ...props }) => {
             icon={() => <Feather name="search" size={20} />}
           />
         }
-        ref={(e) => (to = e)}
-        onSubmitEditing={handleSubmit}
         onChangeText={setData}
         {...props}
       >
