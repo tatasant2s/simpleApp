@@ -1,7 +1,8 @@
 import { styles } from "./cardList_style";
 import { Feather } from "react-native-vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Animated, Text, TouchableOpacity, View } from "react-native";
+import { Swipeable } from "react-native-gesture-handler";
 
 export const CardList = ({ cli }) => {
   const navigation = useNavigation();
@@ -18,17 +19,38 @@ export const CardList = ({ cli }) => {
     });
   }
 
+  function rightAction(progress, dragX) {
+    const scale = dragX.interpolate({
+      inputRange: [-100, 0],
+      outputRange: [1, 0],
+      extrapolate: "clamp",
+    });
+
+    return (
+      <TouchableOpacity style={styles.rightAction}>
+        <Animated.View
+          style={[styles.iconView, { transform: [{ scale: scale }] }]}
+        >
+          <Feather name="trash" color="white" size={30} />
+          <View style={styles.actionText}>
+            <Text style={styles.actionText}> Deletar </Text>
+          </View>
+        </Animated.View>
+      </TouchableOpacity>
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <View style={styles.viewClients}>
+    <Swipeable
+      renderRightActions={rightAction}
+      containerStyle={styles.swipeable}
+    >
+      <View style={styles.containerView}>
         <Text> id: {cli.id} </Text>
-        <Text style={styles.text}> Nome: {cli.name}</Text>
+        <Text> Nome: {cli.name} </Text>
         <Text> CPF/CNPJ: {cli.cpf} </Text>
         <Text> Tipo: {cli.type} </Text>
       </View>
-      <TouchableOpacity onPress={handleEdit} style={styles.editClients}>
-        <Feather name="edit" size={25} />
-      </TouchableOpacity>
-    </View>
+    </Swipeable>
   );
 };

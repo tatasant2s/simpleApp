@@ -2,12 +2,12 @@ import { styles } from "../styles/clients_style";
 import { useClients, useData } from "../../../store";
 import { CardList, InputSearch } from "../../../shared/components";
 import {
-  TouchableWithoutFeedback,
   View,
-  Keyboard,
-  KeyboardAvoidingView,
   FlatList,
+  Keyboard,
   ScrollView,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
 } from "react-native";
 
 export default function Clients() {
