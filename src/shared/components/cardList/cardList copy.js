@@ -19,24 +19,6 @@
 //     });
 //   }
 
-//   function handleRightActions(progress, dragX) {
-//     const scale = dragX.interpolate({
-//       inputRange: [-55, 100],
-//       outputRange: [1, 0],
-//       extrapolate: "clamp",
-//     });
-
-//     return (
-//       <TouchableOpacity
-//         style={[styles.rightAction, { transform: [{ scale }] }]}
-//       >
-//         <View style={{ borderColor: "black", borderWidth: 1 }}>
-//           <Feather name="trash" color="black" size={30} />
-//         </View>
-//       </TouchableOpacity>
-//     );
-//   }
-
 //   return (
 //     <View style={styles.container}>
 //       <Swipeable renderRightActions={handleRightActions}>

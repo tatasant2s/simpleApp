@@ -1,25 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  swipeable: {
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 8,
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 10,
-    backgroundColor: "white",
-
-    shadowColor: "gray",
-    elevation: 5,
-  },
-
-  containerView: {
-    backgroundColor: "white",
-    paddingHorizontal: 10,
-    paddingVertical: 20,
-  },
-
   rightAction: {
     width: "20%",
     justifyContent: "center",
@@ -36,14 +17,32 @@ export const styles = StyleSheet.create({
     fontSize: 17,
   },
 
-  // text: {
-  //   fontWeight: "bold",
-  // },
+  swipeable: {
+    borderColor: "gray",
+    borderWidth: 1,
+    borderRadius: 8,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+    backgroundColor: "white",
+    shadowColor: "gray",
+    elevation: 3,
+  },
 
-  // editClients: {
-  //   position: "absolute",
-  //   right: 20,
-  //   bottom: 30,
-  //   padding: 10,
-  // },
+  containerView: {
+    backgroundColor: "white",
+    paddingHorizontal: 20,
+    paddingVertical: 25,
+  },
+
+  containerText: {
+    fontWeight: "bold",
+  },
+
+  editClients: {
+    position: "absolute",
+    right: 20,
+    bottom: 30,
+    padding: 10,
+  },
 });

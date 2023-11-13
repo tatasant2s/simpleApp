@@ -31,8 +31,8 @@ export const CardList = ({ cli }) => {
         <Animated.View
           style={[styles.iconView, { transform: [{ scale: scale }] }]}
         >
-          <Feather name="trash" color="white" size={30} />
-          <View style={styles.actionText}>
+          <Feather name="trash" color="white" size={25} />
+          <View>
             <Text style={styles.actionText}> Deletar </Text>
           </View>
         </Animated.View>
@@ -46,10 +46,13 @@ export const CardList = ({ cli }) => {
       containerStyle={styles.swipeable}
     >
       <View style={styles.containerView}>
-        <Text> id: {cli.id} </Text>
-        <Text> Nome: {cli.name} </Text>
+        {/* <Text> id: {cli.id} </Text> */}
+        <Text style={styles.containerText}> Nome: {cli.name} </Text>
         <Text> CPF/CNPJ: {cli.cpf} </Text>
         <Text> Tipo: {cli.type} </Text>
+        <TouchableOpacity onPress={handleEdit} style={styles.editClients}>
+          <Feather name="edit" size={25} />
+        </TouchableOpacity>
       </View>
     </Swipeable>
   );
