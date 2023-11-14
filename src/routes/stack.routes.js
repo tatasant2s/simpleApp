@@ -7,8 +7,6 @@ import { AddClients, ConfigLogin, EditClients, Login } from "../modules";
 const Stack = createNativeStackNavigator();
 
 export default function StackRoutes() {
-  //const { setClients } = useClients();
-
   return (
     <Stack.Navigator screenOptions={{ title: "" }}>
       <Stack.Screen
@@ -69,13 +67,3 @@ export default function StackRoutes() {
     </Stack.Navigator>
   );
 }
-
-//headerRight: () => (
-// <TouchableOpacity
-//   onPress={() => {
-//     setClients(form);
-//   }}
-// >
-//   <Feather name="check-circle" size={22} color="white" />
-// </TouchableOpacity>
-//),

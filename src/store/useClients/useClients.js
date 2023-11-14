@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../redux/useSelector";
-import { setClientsAction, setUpdateAction } from ".";
+import { setClientsAction, setUpdateAction, setDeleteAction } from ".";
 
 export const useClients = () => {
   const dispatch = useDispatch();
@@ -14,15 +14,14 @@ export const useClients = () => {
     dispatch(setUpdateAction(currentClients));
   }
 
-  /*function setForm(value, key) {
-    dispatch(setFormAction({ ...form, [key]: value }));
-  }*/
+  function setDelete(currentClients) {
+    dispatch(setDeleteAction(currentClients));
+  }
 
   return {
     clients,
     setClients,
     setUpdate,
-    // form,
-    // setForm,
+    setDelete,
   };
 };

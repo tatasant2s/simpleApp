@@ -22,6 +22,13 @@ export default function Clients() {
     }
   }
 
+  function handleScroll(event) {
+    const { contentOffset, layoutMeasurement, contentSize } = event.nativeEvent;
+
+    const isEndScroll =
+      contentOffset.y >= contentSize.height - layoutMeasurement.height;
+  }
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>

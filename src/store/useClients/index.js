@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 export const clientsSlice = createSlice({
   name: "clientsReducer",
   initialState: {
-    //form: {},
     clients: [
       {
         id: 1,
@@ -78,13 +77,17 @@ export const clientsSlice = createSlice({
     setUpdateAction: (state, action) => {
       state.clients[action.payload.id - 1] = { ...action.payload };
     },
-
-    // setFormAction: (state, action) => {
-    //   state.form = action.payload;
-    // },
+    setDeleteAction: (state, action) => {
+      state.clients = state.clients
+        .filter((cli, i) => i + 1 !== action.payload)
+        .map((cli, i) => {
+          return { ...cli, id: i + 1 };
+        });
+    },
   },
 });
 
-export const { setClientsAction, setUpdateAction } = clientsSlice.actions;
+export const { setClientsAction, setUpdateAction, setDeleteAction } =
+  clientsSlice.actions;
 
 export default clientsSlice.reducer;
