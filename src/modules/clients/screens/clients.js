@@ -1,61 +1,42 @@
 import { styles } from "../styles/clients_style";
+import { useEffect } from "react";
+import { View, FlatList } from "react-native";
 import { useClients, useData } from "../../../store";
 import { CardList, InputSearch } from "../../../shared/components";
-import {
-  View,
-  FlatList,
-  Keyboard,
-  ScrollView,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-} from "react-native";
 
 export default function Clients() {
   const { data } = useData();
-  const { clients } = useClients();
+  const { clients, filterData, setFilter } = useClients();
 
-  function handleSearchData(value) {
+  useEffect(() => {
     if (data === "") {
-      return value;
-    } else if (value.name.toLowerCase().includes(data.toLowerCase())) {
-      return value;
+      setFilter(clients);
+    } else {
+      setFilter(
+        clients.filter((item) => {
+          if (item.name.toLowerCase().indexOf(data.toLowerCase()) > -1) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+      );
     }
-  }
-
-  function handleScroll(event) {
-    const { contentOffset, layoutMeasurement, contentSize } = event.nativeEvent;
-
-    const isEndScroll =
-      contentOffset.y >= contentSize.height - layoutMeasurement.height;
-  }
+  }, [data]);
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <KeyboardAvoidingView behavior="height">
-          <InputSearch
-            outlineStyle={styles.inputSearchView}
-            placeholder="Buscar"
-            mode="outlined"
-          />
+    <View style={styles.container}>
+      <InputSearch
+        outlineStyle={styles.inputSearchView}
+        placeholder="Buscar"
+        mode="outlined"
+      />
 
-          <View style={styles.listView}>
-            <ScrollView>
-              {clients
-                .filter((value) => handleSearchData(value))
-                .map((item, index) => (
-                  <CardList key={index} cli={item} />
-                ))}
-            </ScrollView>
-            {clients === "" && (
-              <FlatList
-                data={clients}
-                renderItem={({ item }) => <CardList cli={item} />}
-              />
-            )}
-          </View>
-        </KeyboardAvoidingView>
-      </View>
-    </TouchableWithoutFeedback>
+      <FlatList
+        data={filterData}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <CardList cli={item} />}
+      />
+    </View>
   );
 }

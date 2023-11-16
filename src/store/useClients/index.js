@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const clientsSlice = createSlice({
   name: "clientsReducer",
   initialState: {
+    filterData: "",
     clients: [
       {
         id: 1,
@@ -74,11 +75,14 @@ export const clientsSlice = createSlice({
     setClientsAction: (state, action) => {
       state.clients.push({ ...action.payload, id: state.clients.length + 1 });
     },
+    setFilterAction: (state, action) => {
+      state.filterData = action.payload;
+    },
     setUpdateAction: (state, action) => {
       state.clients[action.payload.id - 1] = { ...action.payload };
     },
     setDeleteAction: (state, action) => {
-      state.clients = state.clients
+      state.filterData = state.filterData
         .filter((cli, i) => i + 1 !== action.payload)
         .map((cli, i) => {
           return { ...cli, id: i + 1 };
@@ -87,7 +91,11 @@ export const clientsSlice = createSlice({
   },
 });
 
-export const { setClientsAction, setUpdateAction, setDeleteAction } =
-  clientsSlice.actions;
+export const {
+  setClientsAction,
+  setFilterAction,
+  setUpdateAction,
+  setDeleteAction,
+} = clientsSlice.actions;
 
 export default clientsSlice.reducer;

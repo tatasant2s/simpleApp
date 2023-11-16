@@ -1,13 +1,24 @@
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../redux/useSelector";
-import { setClientsAction, setUpdateAction, setDeleteAction } from ".";
+import {
+  setClientsAction,
+  setUpdateAction,
+  setDeleteAction,
+  setFilterAction,
+} from ".";
 
 export const useClients = () => {
   const dispatch = useDispatch();
-  const { clients } = useAppSelector((state) => state.clientsReducer);
+  const { clients, filterData } = useAppSelector(
+    (state) => state.clientsReducer
+  );
 
   function setClients(currentClients) {
     dispatch(setClientsAction(currentClients));
+  }
+
+  function setFilter(currentFilter) {
+    dispatch(setFilterAction(currentFilter));
   }
 
   function setUpdate(currentClients) {
@@ -20,7 +31,9 @@ export const useClients = () => {
 
   return {
     clients,
+    filterData,
     setClients,
+    setFilter,
     setUpdate,
     setDelete,
   };
